@@ -1,5 +1,6 @@
 # OpenCV practice
 
+''' core operations '''
 import numpy as np
 
 import cv2
@@ -33,6 +34,19 @@ for theta in range(10000):
     alpha = abs(np.sin(theta)) # val between 0&1
     img7 = cv2.addWeighted(img, alpha, img4, 1 - alpha, 0)
     cv2.imshow('transition', img7)
+
+''' logical operations on an image '''
+
+# load logo and image
+logo = cv2.imread('isro-logo.jpg', 1)
+background = cv2.imread('stars.jpeg', 1)
+
+rows, columns, channels = logo.shape
+roi = logo[:rows, :columns]
+
+logo2gray = cv2.cvtColor(logo, cv2.COLOR_BGR2GRAY)
+ret, mask = cv2.threshold(logo2gray, 10, 255, cv2.THRESH_BINARY)
+inv_mask = cv2.bitwise_not(mask)
 
 '''
 cv2.imshow('image', img6)
