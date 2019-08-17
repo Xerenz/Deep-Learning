@@ -24,10 +24,6 @@ low_green, high_green = getHSV([0, 255, 0])
 
 low_blue, high_blue = getHSV([255, 0, 0])
 
-print(low_red, high_red)
-print(low_green, high_green)
-print(low_blue, high_blue)
-
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
@@ -60,35 +56,3 @@ while True:
 # finish
 cap.release()
 cv2.destroyAllWindows()
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
